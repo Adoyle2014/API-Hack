@@ -147,7 +147,7 @@ nav {
 	height: 4em;
 
 	background-color: #73AFAD;	
-	width:60%;	
+	width:62%;	
   	top: 50%;
  	transform: translateY(-50%);
 }
@@ -248,7 +248,8 @@ nav {
 
 #slide-selectors {
 	width: 90%;
-	text-align: ; /*initial setting center*/
+	 margin: 0 auto;
+	 text-align: center;
 }
 
 .slide-selector {
@@ -260,16 +261,17 @@ nav {
 	margin-bottom: 50px;
 	text-shadow: 1px 1px 2px #46475b;
 	cursor: pointer;
+
 }
 
 #left-title {
-	margin-right: 185px;
-	text-align: left; /*changes from center to left*/
+	margin-right: 140px;
+	
 }
 
 #right-title {
-	margin-left: 185px;
-	text-align: center; /*changes from center to right*/
+	margin-left: 140px;
+	
 
 }
 
