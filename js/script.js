@@ -1,7 +1,11 @@
 $(document).ready(function() {
 
+	toggle = 1;
+
 $("#left-title").on('click', function(event) {
 	event.preventDefault();
+
+	if (toggle === 1) {
 	$("#slide-selectors").css({
 		'text-align': 'right'
 	});	
@@ -15,12 +19,16 @@ $("#left-title").on('click', function(event) {
 		display: '-webkit-flex',
 		display: 'flex'
 	});
-
+	$("#curtain").show("slide", 1000);
+	toggle = 0;
+}
 
 });
 
 $("#right-title").on('click', function(event) {
 	event.preventDefault();	
+
+	if (toggle === 0) {
 	$("#slide-selectors").css({
 		'text-align': 'left'
 	});
@@ -34,8 +42,12 @@ $("#right-title").on('click', function(event) {
 		display: '-webkit-flex',
 		display: 'flex'
 	});
-
+	$("#curtain").show("slide", 1000);
+	toggle = 1;
+}
 
 });
+
+
 	
 });
