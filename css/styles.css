@@ -346,17 +346,20 @@ nav {
 #suggested-media {
 	display: none;
 
+
 }
 
 #youtube-results {
-	display:;
+	display: none;
+	
 
 }
 
 #curtain {	
 	background-color: #73afad;
-	z-index: 99999;
 	border: 1px solid red;
+	
+
 }
 
 
