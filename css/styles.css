@@ -344,13 +344,22 @@ nav {
 }
 
 #suggested-media {
-	display: none;/*animates from none to empty*/
+	display: none;
 
 }
 
 #youtube-results {
-	display:;/*animates from none to empty*/
+	display:;
+
 }
+
+#curtain {	
+	background-color: #73afad;
+	z-index: 99999;
+	border: 1px solid red;
+}
+
+
 .more {
 	background-color: #714842;
 	font-size: 2em;
