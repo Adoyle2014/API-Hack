@@ -199,11 +199,12 @@ nav {
 	font-size: 1.5em;
 	line-height: 1.5em;
 	height: 100%;
-	width: 17%;
+	width: 15%;
 	background-color: #ececea;
- 	margin-left: 10px;
+ 	float: right;
  	text-align: center;
  	border-left: 1px solid #714842;
+
  	
 }
 
@@ -239,6 +240,11 @@ nav {
 	padding-bottom: 10px;
 	box-sizing: content-box;
 	border-bottom: 5px solid #714842;
+	text-shadow: 0 0 20px #714842;
+}
+
+#result-types li:active {
+	text-shadow: none;
 }
 
 .active {
@@ -253,6 +259,7 @@ nav {
 	 margin: 0 auto;
 	 text-align: center;
 	 margin-top: 50px;
+	 margin-bottom: 50px;
 	 
 }
 
@@ -268,50 +275,37 @@ nav {
 
 }
 
-.borders {
-	width: 90%;
-	 margin: 0 auto;
-	 text-align: center;
-	
-	 margin-bottom: 50px;
-}
-
 .sactive {
 	color: #D9853C;
 	text-shadow: 1px 1px 2px #46475b;
 	border-bottom: 5px solid #714842;
 }
 
-.border-left {
-	position: relative;
-	display: inline-block;	
-	margin-right: 140px;
-	width: 252px;
-	height: 3px;	
-	background-color: #714842;
-	display: none;
-
-
-}
-
 #left-title {	
+	position: relative;
 	background-color: #73AFAD; 
 	margin-right: 140px;
 }
 
-.border-right {
-	position: relative;
-	display: inline-block;		
-	margin-left: 140px;
-	width: 243px;
-	height: 3px;
-	background-color: #714842;
-	display: none;
+#left-title:hover {
+	text-shadow: 0 0 20px #714842;
 }
+
+#left-title:active {
+	text-shadow: none;
+}
+
+
 
 #right-title {
 	background-color: #73AFAD; 
 	margin-left: 140px;
+}
+#right-title:hover {
+	text-shadow: 0 0 20px #714842;
+}
+#right-title:active {
+	text-shadow: none;
 }
 
 
@@ -412,7 +406,18 @@ nav {
 	cursor: pointer;
 	margin: 0 auto;
 	margin-top: 30px;
+	
 
+}
+
+.more:hover {
+	box-shadow: 0 0 20px #d9853c;
+	text-shadow: 0 0 10px #568D8A;
+}
+
+.more:active {
+	box-shadow: none;
+	text-shadow: none;
 }
 
 .left-flex-container {
