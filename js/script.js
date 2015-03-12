@@ -8,6 +8,10 @@ $(document).ready(function() {
 
 });
 
+
+
+
+/*----------Get user input---------------*/
 function GetSearchTerms() {
 	$("#search-find").on("click", function(event) {
 		event.preventDefault();
@@ -16,22 +20,43 @@ function GetSearchTerms() {
 	});
 }
 
-
-function GetRequest(searchTerms){
+/*----------------Get API Data------------------------*/
+var GetRequest = function(searchTerms){
 	var params = {
 		q: searchTerms,
-		
+		info: 1		
 	};
 	url = "http://www.tastekid.com/api/similar";
 
-	$.getJSON(url, params, function(data) {
-		showResults(data.Search);
-	});
+	var result = $.ajax({
+      		url: url,
+      		data: params,
+      		dataType: 'jsonp'
+    	})
+
+    	.done(function(result) {
+		//console.log(result);
+		$.each(result.Similar.Results, function(i, item) {
+			var resultItem = ShowResults(item);
+			$('#results').append(resultItem);
+			//console.log(resultItem);
+		});
+	})
+
+	
 }
 
 function ShowResults(results) {
+	//console.log(results);
+	// clone our result template code
+	var result = $('.templates #suggested-media').clone();
 
-}
+	var resultTitle = result.find('.result-item-title');
+	resultTitle.html('<p>' + results.Name + '</p>')
+	console.log(result);
+	//return result;
+};
+
 
 
 

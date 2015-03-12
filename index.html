@@ -22,8 +22,8 @@
 					<h1>You've Been Served</h1>
 				</div>
 				<div id="search-right">					
-						<input type="text" id="search" placeholder="What do you like?" required>
-						<select name="select-box" id="select-type">
+						<input type="text" id="search" placeholder="What do you like?" title="Use commas to seperate search terms. (Tool, Perfect Circle" required>
+						<select name="select-box" id="select-type" title="Select desired type of media you would like returned">
 							<option value="Mixed" selected>Mixed</option>
 							<option value="Author">Author</option>
 							<option value="Band">Band</option>
@@ -61,82 +61,19 @@
 				
 					<div class="slide-selector" id="right-title">YouTube Results</div>				
 			</div>
-						
+					<div id="results"></div>	
 				<div class="templates hidden">
 
 					<div class="left-flex-container" id="suggested-media">
 						<div class="flex-item">
 							<div class="result-item">
 								<img src="images/me.jpg">
-								<p class="result-item-title">Result Title</p>
+								<p class="result-item-title"></p>
 								<p class="result-item-type">Book</p>
 							</div>
-						</div>
-						<div class="flex-item">
-							<div class="result-item">
-								<img src="images/me.jpg">
-								<p class="result-item-title">Search Result Title</p>
-								<p class="result-item-type">Book</p>
-							</div>
-						</div>
-						<div class="flex-item">
-							<div class="result-item">
-								<img src="images/me.jpg">
-								<p class="result-item-title">A Long Search Result Title</p>
-								<p class="result-item-type">Games</p>
-							</div>
-						</div>
-						<div class="flex-item">
-							<div class="result-item">
-								<img src="images/me.jpg">
-								<p class="result-item-title">Title</p>
-								<p class="result-item-type">Games</p>
-							</div>
-						</div>
-						<div class="flex-item">
-							<div class="result-item">
-								<img src="images/me.jpg">
-								<p class="result-item-title">Search Result Title</p>
-								<p class="result-item-type">Book</p>
-							</div>
-						</div>
-						<div class="flex-item">
-							<div class="result-item">
-								<img src="images/me.jpg">
-								<p class="result-item-title">A Long Search Result Title</p>
-								<p class="result-item-type">Book</p>
-							</div>
-						</div>
-						<div class="flex-item">
-							<div class="result-item">
-								<img src="images/me.jpg">
-								<p class="result-item-title">Title</p>
-								<p class="result-item-type">Video</p>
-							</div>
-						</div>
-						<div class="flex-item">
-							<div class="result-item">
-								<img src="images/me.jpg">
-								<p class="result-item-title">Search Result Title</p>
-								<p class="result-item-type">Authors</p>
-							</div>
-						</div>
-						<div class="flex-item">
-							<div class="result-item">
-								<img src="images/me.jpg">
-								<p class="result-item-title">A Long Search Result Title</p>
-								<p class="result-item-type">Book</p>
-							</div>
-						</div>
-						<div class="flex-item">
-							<div class="result-item">
-								<img src="images/me.jpg">
-								<p class="result-item-title">Title</p>
-								<p class="result-item-type">Book</p>
-							</div>
-						</div>
+						</div>						
 					</div>
-
+					
 					<div class="right-flex-container" id="youtube-results">
 						<div class="flex-item">
 							<div class="youtube-result-item">
@@ -144,115 +81,12 @@
 								<p class="result-item-title">A Long Search Result Title</p>
 								<p class="result-item-type">Book</p>
 							</div>
-						</div>
-						<div class="flex-item">
-							<div class="youtube-result-item">
-								<img src="images/me.jpg">
-								<p class="result-item-title">Result Title</p>
-								<p class="result-item-type">Book</p>
-							</div>
-						</div>
-						<div class="flex-item">
-							<div class="youtube-result-item">
-								<img src="images/me.jpg">
-								<p class="result-item-title">Search Result Title</p>
-								<p class="result-item-type">Book</p>
-							</div>
-						</div>
-						<div class="flex-item">
-							<div class="youtube-result-item">
-								<img src="images/me.jpg">
-								<p class="result-item-title">A Long SearchResult Title</p>
-								<p class="result-item-type">Book</p>
-							</div>
-						</div>
-						<div class="flex-item">
-							<div class="youtube-result-item">
-								<img src="images/me.jpg">
-								<p class="result-item-title">Title</p>
-								<p class="result-item-type">Book</p>
-							</div>
-						</div>
-						<div class="flex-item">
-							<div class="youtube-result-item">
-								<img src="images/me.jpg">
-								<p class="result-item-title">Title</p>
-								<p class="result-item-type">Book</p>
-							</div>
-						</div>
-						<div class="flex-item">
-							<div class="youtube-result-item">
-								<img src="images/me.jpg">
-								<p class="result-item-title">Search Result Title</p>
-								<p class="result-item-type">Book</p>
-							</div>
-						</div>
-						<div class="flex-item">
-							<div class="youtube-result-item">
-								<img src="images/me.jpg">
-								<p class="result-item-title">A Long SearchResult Title</p>
-								<p class="result-item-type">Book</p>
-							</div>
-						</div>
-						<div class="flex-item">
-							<div class="youtube-result-item">
-								<img src="images/me.jpg">
-								<p class="result-item-title">Result Title</p>
-								<p class="result-item-type">Book</p>
-							</div>
-						</div>
-						<div class="flex-item">
-							<div class="youtube-result-item">
-								<img src="images/me.jpg">
-								<p class="result-item-title">Title</p>
-								<p class="result-item-type">Book</p>
-							</div>
-						</div>
-						<div class="flex-item">
-							<div class="youtube-result-item">
-								<img src="images/me.jpg">
-								<p class="result-item-title">Search Result Title</p>
-								<p class="result-item-type">Book</p>
-							</div>
-						</div>
-						<div class="flex-item">
-							<div class="youtube-result-item">
-								<img src="images/me.jpg">
-								<p class="result-item-title">A Long SearchResult Title</p>
-								<p class="result-item-type">Book</p>
-							</div>
-						</div>
-						<div class="flex-item">
-							<div class="youtube-result-item">
-								<img src="images/me.jpg">
-								<p class="result-item-title">Title</p>
-								<p class="result-item-type">Book</p>
-							</div>
-						</div>
-						<div class="flex-item">
-							<div class="youtube-result-item">
-								<img src="images/me.jpg">
-								<p class="result-item-title">A Long Search Result Title</p>
-								<p class="result-item-type">Book</p>
-							</div>
-						</div>
-						<div class="flex-item">
-							<div class="youtube-result-item">
-								<img src="images/me.jpg">
-								<p class="result-item-title">Title</p>
-								<p class="result-item-type">Book</p>
-							</div>
-						</div>
-						<div class="flex-item">
-							<div class="youtube-result-item">
-								<img src="images/me.jpg">
-								<p class="result-item-title">Result Title</p>
-								<p class="result-item-type">Book</p>
-							</div>
-						</div>
+						</div>								
 					</div><!--flexcontainer-->
-				</div><!--template-->
-			
+					<div class="error">
+						<p>Uh-oh! Something went wrong with your request. Here's what we know:</p>
+					</div>			
+				</div><!--template-->			
 			<div class="more">More</div>
 		</div><!--container-->
 	</div><!--content-->	
