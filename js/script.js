@@ -52,8 +52,10 @@ var GetTkRequest = function(searchTerms, selectedType){
     	.done(function(result) {
     		console.log(result);		
 		$.each(result.Similar.Results, function(i, item) {
-			var resultTkItem = ShowTkResults(item);
+			var resultTkItem = ShowResults(item);
+			//console.log("TK - " + resultTkItem);
 			var resultYtItem = GetYtRequest(item);
+			//console.log("YT - " + resultYtItem);
 			$('#suggested-media').append(resultTkItem);
 			tkItemCount++			
 		});		
@@ -62,13 +64,13 @@ var GetTkRequest = function(searchTerms, selectedType){
     	
 };
 
-function ShowTkResults(results) {	
-	
+function ShowResults(results) {	
 	return $("<div/>").addClass("flex-item").addClass("result-item").attr('data-id', tkItemCount).append(
-		$("<img/>").attr('src', ytThumb),
-		$("<p/>").addClass("result-item-title").html(results.Name),
-		$("<p/>").addClass("result-item-type").html(results.Type)
+		 $("<img/>").attr('src', ytThumb),	
+		 $("<p/>").addClass("result-item-title").html(results.Name),
+		 $("<p/>").addClass("result-item-type").html(results.Type)
 		
+
 	);
 	
 };
@@ -87,7 +89,7 @@ function GetYtRequest(tkData) {
 
 		$.getJSON(url, params, function(data){
 			dataReturn = data;
-			ShowYtResults(data);
+			FormatYtResults(data);
 			
 
 		});
@@ -95,9 +97,12 @@ function GetYtRequest(tkData) {
 
 
 
-function ShowYtResults(results) {
-	console.log(results);
-	ytThumb = results.snippet.thumbnails.default.url;
+function FormatYtResults(results) {
+	//console.log(results);
+	ytThumb = ('"' + (results.items[0]).snippet.thumbnails.default.url + '"');
+	//ytThumb = ((results.items[0]).snippet.thumbnails.default.url);
+	console.log(ytThumb);
+	 
 
 }
 
