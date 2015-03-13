@@ -71,7 +71,7 @@ body {
 
 
 .container {
-	width: 80%;
+	width: 90%;
 	height: 100%;
 	margin: 0 auto;
 	
@@ -117,6 +117,7 @@ nav {
 	font-family: "Lobster", cursive;
 	margin-top: 7px;
 	text-shadow: 1px 1px 2px #46475b;
+	cursor: default;
 
 }
 #nav-left {
@@ -254,63 +255,25 @@ nav {
 
 }
 
-#slide-selectors {
-	width: 90%;
-	 margin: 0 auto;
-	 text-align: center;
-	 margin-top: 50px;
-	 margin-bottom: 50px;
-	 
-}
-
-.slide-selector {
+#left-title {
 	font-family: "Yanone Kaffeesatz", sans-serif;
 	font-size: 3em;
 	color: #D9853C;
-	display: inline-block;	
+	display: block;	
 	text-shadow: 1px 1px 2px #46475b;
-	cursor: pointer;
+	cursor: default;
 	text-align: center;
+	margin-top: 40px;
+	margin-bottom: 40px;
 	
 
 }
 
-.sactive {
-	color: #D9853C;
-	text-shadow: 1px 1px 2px #46475b;
-	border-bottom: 5px solid #714842;
-}
-
-#left-title {	
-	position: relative;
-	background-color: #73AFAD; 
-	margin-right: 140px;
-}
-
-#left-title:hover {
-	text-shadow: 0 0 20px #714842;
-}
-
-#left-title:active {
-	text-shadow: none;
-}
-
-
-
-#right-title {
-	background-color: #73AFAD; 
-	margin-left: 140px;
-}
-#right-title:hover {
-	text-shadow: 0 0 20px #714842;
-}
-#right-title:active {
-	text-shadow: none;
-}
 
 
 .result-item {
 	width: auto;
+	min-width: 180px;
 	height: 85px;
 	margin: 20px 40px 20px 20px;
 	background-color: #568D8A;
@@ -350,50 +313,16 @@ nav {
 	cursor: default;
 }
 
-.youtube-result-item {
-	width: auto;
-	height: 85px;
-	margin: 20px 40px 20px 20px;
-	background-color: #568D8A;
-	text-align: center;
-	border-bottom-left-radius: 10px;
-	border-top-left-radius: 10px;
-	box-shadow: 0 0 10px #714842;
-}
 
-.youtube-result-item img {
-	height: 100%;
-	float: right;
-	border-bottom-left-radius: 10px;
-	border-top-left-radius: 10px;
-}
 
-.youtube-result-item:hover {
-	box-shadow: 0 0 20px #714842;
-}
 
-.youtube-result-item:active {
-	box-shadow: none;
-}
+
 
 #suggested-media {
 	display: none;
 	overflow: hidden;
 
 }
-
-#youtube-results {
-	display: none;
-	overflow: hidden;
-
-}
-
-.hidden {
-
-}
-
-
-
 
 .more {
 	background-color: #714842;
@@ -405,9 +334,7 @@ nav {
 	text-align: center;
 	cursor: pointer;
 	margin: 0 auto;
-	margin-top: 30px;
-	
-
+	margin-top: 20px;
 }
 
 .more:hover {
@@ -420,7 +347,7 @@ nav {
 	text-shadow: none;
 }
 
-.left-flex-container {
+.flex-container {
     display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
@@ -450,38 +377,6 @@ nav {
     -ms-flex-align: start;
     align-items: flex-start;
     }
-
-.right-flex-container {
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-direction: normal;
-    -moz-box-direction: normal;
-    -webkit-box-orient: horizontal;
-    -moz-box-orient: horizontal;
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    -webkit-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    -webkit-box-pack: end;
-    -moz-box-pack: end;
-    -webkit-justify-content: flex-end;
-    -ms-flex-pack: end;
-    justify-content: flex-end;
-    -webkit-align-content: flex-start;
-    -ms-flex-line-pack: start;
-    align-content: flex-start;
-    -webkit-box-align: start;
-    -moz-box-align: start;
-    -webkit-align-items: flex-start;
-    -ms-flex-align: start;
-    align-items: flex-start;
-    }
-
 
 .flex-item:nth-child(1) {
     -webkit-box-ordinal-group: 1;
