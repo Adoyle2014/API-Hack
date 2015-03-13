@@ -9,6 +9,10 @@ $(document).ready(function() {
 });
 
 function Main() {
+	ytThumb = ''
+	tkItemCount = 0;
+
+
 	GetSearchTerms();
 
 
@@ -50,29 +54,26 @@ var GetTkRequest = function(searchTerms, selectedType){
 		$.each(result.Similar.Results, function(i, item) {
 			var resultTkItem = ShowTkResults(item);
 			var resultYtItem = GetYtRequest(item);
-			$('#suggested-media').append(resultTkItem);			
+			$('#suggested-media').append(resultTkItem);
+			tkItemCount++			
 		});		
 		SlideEffect();		
 	});	
-    	console.log(url);
+    	
 };
 
 function ShowTkResults(results) {	
-	// clone our result template code
-	var result = $('.templates .flex-item').clone();
-
-	var resultItemImage = result.find('img');
-
-
-	var resultItemTitle = result.find('p.result-item-title');
-	resultItemTitle.html(results.Name)
-
-	var resultItemType = result.find('p.result-item-type');
-	resultItemType.html(results.Type)
-
-	return result;
-
+	
+	return $("<div/>").addClass("flex-item").addClass("result-item").attr('data-id', tkItemCount).append(
+		$("<img/>").attr('src', ytThumb),
+		$("<p/>").addClass("result-item-title").html(results.Name),
+		$("<p/>").addClass("result-item-type").html(results.Type)
+		
+	);
+	
 };
+
+//match the title to the result-item-title?
 
 function GetYtRequest(tkData) {
 	var videoId = tkData.yID
@@ -85,17 +86,18 @@ function GetYtRequest(tkData) {
   		url = 'https://www.googleapis.com/youtube/v3/search';
 
 		$.getJSON(url, params, function(data){
-			console.log(data);
 			dataReturn = data;
 			ShowYtResults(data);
+			
 
 		});
 	}
 
 
 
-function ShowYtResults() {
-
+function ShowYtResults(results) {
+	console.log(results);
+	ytThumb = results.snippet.thumbnails.default.url;
 
 }
 
