@@ -9,8 +9,9 @@ $(document).ready(function() {
 });
 
 function Main() {
-	ytThumb = ''
+	ytThumb = [];
 	tkItemCount = 0;
+    resultYtItem = [];
 
 
 	GetSearchTerms();
@@ -28,8 +29,6 @@ function GetSearchTerms() {
 		terms = $("#search").val();
 		GetTkRequest(terms, type);
 		$("#search").val('');
-		console.log(type + '-' + terms);
-		
 	});
 	
 }
@@ -39,7 +38,8 @@ var GetTkRequest = function(searchTerms, selectedType){
 	var params = {
 		q: searchTerms,
 		type: selectedType,
-		info: 1		
+		info: 1,
+        k: "126767-TheMedia-0C0RD6J9"
 	};
 	url = "http://www.tastekid.com/api/similar";
 	
@@ -50,78 +50,77 @@ var GetTkRequest = function(searchTerms, selectedType){
     	})
 
     	.done(function(result) {
-    				
-		$.each(result.Similar.Results, function(i, item) {
+            $.each(result.Similar.Results, function(i, item) {
 
-			var resultYtItem = GetYtRequest(item);
+			resultYtItem.push(item.yID) ;
 			var resultTkItem = ShowResults(item);
-			//console.log("TK - " + resultTkItem);			
-			//console.log("YT - " + resultYtItem);
 			$('#suggested-media').append(resultTkItem);
 			tkItemCount++			
-		});		
-		SlideEffect();		
-	});	
-    	
+		});
+        SlideEffect();
+            GetYtRequest();
+	});
+
 };
 
 function ShowResults(results) {	
-	console.log(ytThumb);
+
 	return $("<div/>").addClass("flex-item").addClass("result-item").attr('data-id', tkItemCount).append(
-		 $("<img/>").attr('src', ytThumb),	
 		 $("<p/>").addClass("result-item-title").html(results.Name),
 		 $("<p/>").addClass("result-item-type").html(results.Type)
-		
-
 	);
 	
-};
+}
 
 //match the title to the result-item-title?
 
-function GetYtRequest(tkData) {
-	var videoId = tkData.yID
-	var params = {
-    		part: 'snippet',
-    		key: 'AIzaSyDM9phtsd2BSBMrzDcwTDy-AE51tZO-qr8',
-    		q: videoId,
-    		maxResults:'1'
-    		};
-  		url = 'https://www.googleapis.com/youtube/v3/search';
+function GetYtRequest() {
+    $.each(resultYtItem, function (index, value) {
 
-		$.getJSON(url, params, function(data){
-			dataReturn = data;
-			FormatYtResults(data);
-			
+        var videoId = value;
+        var params = {
+            part: 'snippet',
+            key: 'AIzaSyDM9phtsd2BSBMrzDcwTDy-AE51tZO-qr8',
+            q: videoId,
+            maxResults: '1'
+        };
+        url = 'https://www.googleapis.com/youtube/v3/search';
 
-		});
-	}
+        $.getJSON(url, params, function (data) {
+            console.log(data);
+            ytThumb.push(data.items.snippet.thumbnails.default.url);
 
+        });
 
-
-function FormatYtResults(results) {
-	//console.log(results);
-	ytThumb = (results.items[0]).snippet.thumbnails.default.url;
-	//ytThumb = ((results.items[0]).snippet.thumbnails.default.url);
-	console.log(ytThumb);
-	 
+        //ShowYtResults();
+    });
+    console.log("ytThumb - " + ytThumb);
 
 }
 
-/*-----------------------Slide Animations----------------------*/
-function SlideEffect() {			
-	
-	$("#suggested-media").show("slide", { direction: 'left', easing: 'easeInCirc' }, 1000);
-	$("#suggested-media").css({
-		display: '-webkit-box',
-		display: '-moz-box',
-		display: '-ms-flexbox',
-		display: '-webkit-flex',
-		display: 'flex'
-	});
-	$(".more").css({
-		display: 'block'		
-	});
-};		
+function ShowYtResults() {
+
+    $.each(ytThumb, function(index, value) {
+        $(".result-item").append($("<img/>").attr('src', value));
+    });
+
+}
+
+
+    /*-----------------------Slide Animations----------------------*/
+    function SlideEffect() {
+
+        $("#suggested-media").show("slide", {direction: 'left', easing: 'easeInCirc'}, 1000);
+        $("#suggested-media").css({
+            display: '-webkit-box',
+            display: '-moz-box',
+            display: '-ms-flexbox',
+            display: '-webkit-flex',
+            display: 'flex'
+        });
+        $(".more").css({
+            display: 'block'
+        });
+    };
 
 	
